@@ -1,0 +1,99 @@
+
+
+.big-header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+    margin: 30px 0px;
+}
+
+.orange-btn {
+    border-radius: 50%;
+    border-style: none;
+    cursor: pointer;
+
+}
+
+.orange-btn img {
+    width: 41px;
+    height: 41px;
+    background: #F0972A 0% 0% no-repeat padding-box;
+    box-shadow: 0px 3px 6px #00000029;
+    opacity: 1;
+    border-radius: 50%;
+}
+
+#table {
+    display: flex;
+    justify-content: center;
+    border-collapse:collapse;
+}
+
+#table td {
+    height: 61px;
+    
+}
+
+#table th {
+    color: #F0972A;
+    font: normal normal bold 16px/21px Roboto;
+    text-align: left;
+}
+
+#delete-text{
+    text-align: right !important;
+}
+
+#t-name {
+    text-align: left;
+    font: normal normal bold 16px/21px Roboto;
+    letter-spacing: 0px;
+    color: #A5A5A5;
+    width: 255px;
+}
+
+#t-category {
+    width: 255px;
+
+
+}
+
+#t-category p {
+    background: #96BB36 0% 0% no-repeat padding-box;
+    border-radius: 5px;
+    opacity: 1;
+    width: 80px;
+    text-align: center;
+    padding: 5px;
+}
+#t-name{
+    padding: 5px 20px;
+   
+}
+
+#t-date {
+    text-align: left;
+    font: normal normal normal 16px/21px Roboto;
+    letter-spacing: 0px;
+    color: #A5A5A5;
+    width: 255px;
+}
+
+#t-button {
+    text-align: right;
+    width: 600px;
+}
+
+#t-button button{
+    margin-right: 20px;
+    border: none;
+    cursor: pointer;
+}
+
+
+td {
+    background-color:white;
+   margin: 5px 10px;
+   border-collapse:collapse;
+}

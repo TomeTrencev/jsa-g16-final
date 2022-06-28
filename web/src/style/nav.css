@@ -1,0 +1,123 @@
+#main-nav {
+    margin-right: 8px;
+}
+
+#nav {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    padding: 30px 200px;
+}
+
+#navigation {
+    margin-left: 50px;
+    display: flex;
+}
+
+.nav-bar {
+    width: 100%;
+    margin-left: 40px;
+    display: flex;
+}
+
+.nav-item {
+    padding: 5px 25px;
+    font: normal normal bold 18px/24px Roboto;
+    text-transform: uppercase;
+    position: relative;
+    list-style-type: none;
+    text-decoration: none;
+}
+
+.nav-item a {
+    text-decoration: none;
+    color: #A5A5A5;
+}
+
+.grey-btn {
+    font: normal normal 900 16px/21px Roboto;
+    color: #A5A5A5;
+    text-transform: uppercase;
+    padding: 7px 15px;
+    cursor: pointer;
+    border: 1px solid var(--midgrey);
+    border: 1px solid #A5A5A5;
+    opacity: 1;
+}
+
+.nav-item::after {
+    content: "";
+    position: absolute;
+    width: 9px;
+    height: 9px;
+    background-color: orange;
+    border-radius: 50%;
+    top: 12px;
+    right: 5px;
+}
+
+.nav-item:last-child::after {
+    display: none;
+}
+
+.log-register {
+    padding: 10px 50px;
+    display: flex;
+}
+
+.right-menu {
+    display: inline-block;
+    padding: 8px 15px;
+}
+
+#or {
+    color: orange;
+}
+
+.green-btn {
+    font-weight: 800;
+    text-transform: uppercase;
+    border-radius: 5px;
+    background: var(--green) 0% 0% no-repeat padding-box;
+    background: #96BB36 0% 0% no-repeat padding-box;
+    color: white;
+    cursor: pointer;
+    border: none;
+    padding: 10px 20px;
+}
+
+#recipes-btn {
+    font: normal normal 900 18px/24px Roboto;
+    text-transform: uppercase;
+    border: none;
+}
+#recipes-btn>a {
+  color: #96BB36;
+}
+
+.loged-in button{
+    padding: 0px 15px;
+}
+
+
+#profile-btn{
+    font: normal normal 900 18px/24px Roboto;
+    text-transform: uppercase;
+    border: none;
+}
+
+#profile-btn>a{
+  color:#F0972A ;
+}
+
+#log-out-btn{
+    font: normal normal 900 18px/24px Roboto;
+    text-transform: uppercase;
+    border: none;
+}
+
+#log-out-btn{
+   color: #A5A5A5;
+   cursor: pointer;
+   text-decoration: underline;
+}

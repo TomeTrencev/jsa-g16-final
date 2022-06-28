@@ -1,0 +1,117 @@
+#popup {
+    position: fixed;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top: 0;
+    background: var(--softwhite) 0% 0% no-repeat padding-box;
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(24px);
+    z-index: 2;
+}
+
+.close-popup {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    font-size: 30px;
+    font-weight: bold;
+   
+    border: 0px;
+    cursor: pointer;
+    position: absolute;
+    right: 450px;
+    top: 200px;
+    color:grey
+}
+.popup-container {
+    width: 1027px;
+    height: 599px;
+    overflow: hidden;
+    background:#F8F7F2 !important;
+    box-shadow: 0px 10px 20px #00000012;
+    border: 1px solid #D8D8D8;
+    border-radius: 5px;
+    display: flex;
+    justify-content: center;
+}
+
+.left-popup{
+    margin: 25px 25px;
+    background:#F8F7F2;
+}
+
+.small-text-popup{
+    display: flex;
+    justify-content: space-between;
+    margin-top: 30px;
+}
+
+.small-text-popup h4{
+    color:#96BB36 ;
+    font: normal normal bold 18px/24px Roboto Slab;
+    text-align: left;
+}
+
+.left-popup p {
+    color:#A5A5A5 ;
+    font: normal normal normal 16px/21px Roboto;
+    text-align: left;
+    margin-top: 20px;
+}
+
+.small-text-popup span{
+    background:#96BB36 ;
+    border-radius: 15px;
+    font: normal normal bold 14px/19px Roboto Slab;
+    padding: 5px;
+    color: white;
+}
+
+.popup-container h2{
+    color:#F0972A ;
+    font: normal normal bold 35px/50px Roboto Slab;
+    text-align: left;
+    margin-left: 25px;
+}
+
+.right-popup{
+    margin: 55px 25px;
+}
+
+.main-span-popup{
+    display: flex;
+    flex-direction: row;
+    
+    margin-top: 20px;
+    align-items: flex-end;
+}
+
+.span-popup{
+    padding: 0px 10px;
+    text-align: left;
+    font: normal normal bold 13px/16px Roboto Slab;
+    letter-spacing: 0px;
+    color: #626262;
+}
+
+.span-popup span{
+    padding: 0px 2px;
+}
+
+.right-popup h4{
+    color:#96BB36 ;
+    font: normal normal bold 18px/24px Roboto Slab;
+    text-align: left;
+    margin-top: 12px;
+}
+
+.right-popup p{
+    color: #A5A5A5;
+    margin-top: 20px;
+    padding-right: 50px;
+    text-align: left;
+}
