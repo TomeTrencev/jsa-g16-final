@@ -8,6 +8,9 @@ const Posts = mongoose.model(
         title: String,
         paragraph: String,
         details:String,
+        fileName: {
+            file_name: String
+        },
         min:Number,
         persons:Number,
         createdAt: {

@@ -13,9 +13,9 @@ export const Popup = ({ closePopup, card, id}) => {
     const [karti, setKarti] = useState([]);
 
 
-    const getCards = async ({_id}) => {
+    const getCards = async () => {
         try {
-            let res = await fetch(`/api/v1/blog/${_id}`, {
+            let res = await fetch(`/api/v1/blog`, {
                 method: 'GET',
                 headers: {
                     'content-type': 'application/json',

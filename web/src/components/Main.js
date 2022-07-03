@@ -9,6 +9,7 @@ import arrow from '../images/icon_arrows_white.svg'
 export const Main = () => {
 
     const [karti, setKarti] = useState([]);
+    // const [img, setImg] = useState();
 
     const getCards = async () => {
         try {
@@ -30,6 +31,9 @@ export const Main = () => {
         getCards()
 
     }, []);
+
+
+    
 
     const [popup, setPopup] = useState(false);
 

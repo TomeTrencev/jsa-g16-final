@@ -7,6 +7,7 @@ const Post = {
     paragraph: 'required|string',
     min : 'required|integer',
     persons:'required|integer',
+   
 };
 
 const PostPartial = {
