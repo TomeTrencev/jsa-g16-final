@@ -1,45 +1,26 @@
 import React, { useState } from "react";
+import food from "../images/food1.jpg";
 import back from '../images/icon_back_white.svg';
-import { Link, Navigate } from "react-router-dom";
-import { useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 export const MyRecipes = () => {
 
-    const [img, setImg] = useState();
-    const [doc, setDoc] = useState();
+    const recipesInit = {
+        category: '',
+        title: '',
+        paragraph: '',
+        details:'',
+        min: '',
+        persons: '',
 
-    const onImageChange = (e) => {
-        setImg(URL.createObjectURL(e.target.files[0]));
-        setDoc(e.target.files[0]);
     };
 
-    const fileImg = new FormData();
-    fileImg.append("document", doc);
+    const [recipeData, setRecipeData] = useState(recipesInit);
 
-    const [title, setTitle] = useState('');
-    const [category, setCategory] = useState(0);
-    const [paragraph, setParapraph] = useState('');
-    const [details, setDetails] = useState('');
-    const [min, setMin] = useState (0);
-    const [persons, setPersons] = useState(0)
-
-   
-    
     const submit = async (e) => {
-        e.preventDefault();
-        const recipeData = {category, title,paragraph,details,min,persons}
+        // e.preventDefault();
         console.log(recipeData);
         try {
-            let out = await fetch('/api/v1/storage', {
-                method: 'POST',
-                body: fileImg,
-                headers: {
-                   "Authorization": `Bearer ${localStorage.getItem("jwt")}`
-                }
-             })
-    
-             recipeData.fileName = await out.json();
-
             let res = await fetch('/api/v1/blog',
                 {
                     method: 'POST',
@@ -52,9 +33,8 @@ export const MyRecipes = () => {
             if (!res.ok) {
                 throw 'Something is wrong!'
             }
-            console.log(recipeData);
-            alert('recipe is created');
-            Navigate('/')
+            let data = await res.json();
+            setRecipeData(data);
         } catch (err) {
             alert(err);
         }
@@ -71,14 +51,10 @@ export const MyRecipes = () => {
                 <button className="back-btn" ><Link to="/my-recipes"><img src={back} alt="" /></Link></button>
 
             </div>
-            <div className="recipes-main" >
+            <div className="recipes-main">
                 <div className="upload-recipe">
-                <p>Recipe Image</p>
-                    <img width="234px" src={img} alt="" />
-                    <label className="btnn">
-                  <input className="grey-btn" type="file" onChange={onImageChange} />
-                  UPLOAD IMAGE
-               </label>
+                    <img width="234px" src={food} alt="" />
+                    <button className="grey-btn">Upload Image</button>
 
                 </div>
                 <div className="recipe-inputs">
@@ -89,9 +65,9 @@ export const MyRecipes = () => {
                                 className="inputs"
                                 type="text"
                                 name="title"
-                                value={title}
-                                onChange={(e) => {
-                                    setTitle( e.target.value )
+                                value={recipeData.title}
+                                onChange={(e)=>{
+                                    setRecipeData({...recipeData,title:e.target.value})
                                 }}
                             />
                         </label>
@@ -103,15 +79,15 @@ export const MyRecipes = () => {
                                     className="inputs"
                                     type="text"
                                     name="Category"
-                                    value={category}
-                                    onChange={(e) => {
-                                        setCategory(e.target.value )
+                                    value={recipeData.category}
+                                    onChange={(e)=>{
+                                        setRecipeData({...recipeData,category:e.target.value})
                                     }}
-                                >
-                                    <option value='Breakfast'>Breakfast</option>
-                                    <option value='Brunch'>Brunch</option>
-                                    <option value='Lunch'>Lunch</option>
-                                    <option value='Dinner'>Dinner</option>
+                                    >
+                                        <option value='Breakfast'>Breakfast</option>
+                                        <option value='Brunch'>Brunch</option>
+                                        <option value='Lunch'>Lunch</option>
+                                        <option value='Dinner'>Dinner</option>
                                 </select>
                             </label>
                             <label className="login-input">
@@ -120,9 +96,9 @@ export const MyRecipes = () => {
                                     className="inputs"
                                     type="text"
                                     name="preparation"
-                                    value={min}
-                                    onChange={(e) => {
-                                        setMin(e.target.value )
+                                    value={recipeData.min}
+                                    onChange={(e)=>{
+                                        setRecipeData({...recipeData,min:e.target.value})
                                     }}
                                 />
                             </label>
@@ -132,9 +108,9 @@ export const MyRecipes = () => {
                                     className="inputs"
                                     type="text"
                                     name="people"
-                                    value={persons}
-                                    onChange={(e) => {
-                                        setPersons( e.target.value )
+                                    value={recipeData.persons}
+                                    onChange={(e)=>{
+                                        setRecipeData({...recipeData,persons:e.target.value})
                                     }}
                                 />
                             </label>
@@ -145,34 +121,34 @@ export const MyRecipes = () => {
 
                                 <span>Short Descripion</span>
                                 <textarea
-                                    name="short-description"
-                                    type='textarea'
-                                    value={paragraph}
-                                    onChange={(e) => {
-                                        setParapraph( e.target.value )
-                                    }}
+                                name="short-description"
+                                type='textarea'
+                                value={recipeData.paragraph}
+                                onChange={(e)=>{
+                                    setRecipeData({...recipeData,paragraph:e.target.value})
+                                }}
                                 ></textarea>
                             </label>
-                            <button className="green-btn">SAVEaaa</button>
+                            <button className="green-btn">SAVE</button>
                         </div>
                     </form>
                 </div>
 
                 <div className="long-description">
                     <form onSubmit={submit}>
-                        <label className="login-input">
-                            <span>Recipe</span>
-                            <textarea
-                                name="long-description"
-                                type='textarea'
-                                value={details}
-                                onChange={(e) => {
-                                    setDetails( e.target.value )
-                                }}
-                            >
+                    <label className="login-input">
+                        <span>Recipe</span>
+                        <textarea
+                        name="long-description"
+                        type='textarea'
+                        value={recipeData.details}
+                        onChange={(e)=>{
+                            setRecipeData({...recipeData,details:e.target.value})
+                        }}
+                        >
 
-                            </textarea>
-                        </label>
+                        </textarea>
+                    </label>
                     </form>
                 </div>
 
@@ -180,4 +156,4 @@ export const MyRecipes = () => {
 
         </div>
     )
-}
+} 
